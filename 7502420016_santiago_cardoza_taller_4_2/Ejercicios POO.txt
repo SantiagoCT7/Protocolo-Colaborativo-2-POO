@@ -1,0 +1,157 @@
+Ejercicio 1: 
+public class Estudiante {
+    private String nombre;
+    private int edad;
+    private double notaPromedio;
+
+    public Estudiante(String nombre, int edad, double notaPromedio) {
+        setNombre(nombre);
+        setEdad(edad);
+        setNotaPromedio(notaPromedio);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        if (nombre != null && !nombre.trim().isEmpty()) {
+            this.nombre = nombre;
+        } else {
+            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+        }
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        if (edad > 0 && edad <= 100) {
+            this.edad = edad;
+        } else {
+            throw new IllegalArgumentException("Edad debe estar entre 1 y 100.");
+        }
+    }
+
+    public double getNotaPromedio() {
+        return notaPromedio;
+    }
+
+    public void setNotaPromedio(double notaPromedio) {
+        if (notaPromedio >= 0.0 && notaPromedio <= 10.0) {
+            this.notaPromedio = notaPromedio;
+        } else {
+            throw new IllegalArgumentException("La nota debe estar entre 0.0 y 10.0.");
+        }
+    }
+}
+
+-
+
+public class PruebaEstudiante {
+    public static void main(String[] args) {
+        try {
+            Estudiante estudiante1 = new Estudiante("Santiago1", 20, 10);
+            Estudiante estudiante2 = new Estudiante("Santiago", 22, 9.8);
+
+            System.out.println("Estudiante 1:");
+            System.out.println("Nombre: " + estudiante1.getNombre());
+            System.out.println("Edad: " + estudiante1.getEdad());
+            System.out.println("Nota Promedio: " + estudiante1.getNotaPromedio());
+
+            System.out.println("\nEstudiante 2:");
+            System.out.println("Nombre: " + estudiante2.getNombre());
+            System.out.println("Edad: " + estudiante2.getEdad());
+            System.out.println("Nota Promedio: " + estudiante2.getNotaPromedio());
+
+            estudiante1.setNotaPromedio(11.0); 
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+Ejercicio 2
+
+public class Coche {
+    private String marca;
+    private String modelo;
+    private int velocidadMaxima;
+
+    public Coche(String marca, String modelo, int velocidadMaxima) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidadMaxima = velocidadMaxima;
+    }
+
+    public void acelerar(int incremento) {
+        if (incremento > 0) {
+            velocidadMaxima += incremento;
+            System.out.println("Velocidad máxima incrementada a: " + velocidadMaxima + " km/h");
+        } else {
+            System.out.println("El incremento debe ser positivo.");
+        }
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public int getVelocidadMaxima() {
+        return velocidadMaxima;
+    }
+}
+
+-
+
+public class Tiendasus {
+    public static void main(String[] args) {
+        Coche coche1 = new Coche("Ferrari", "Inferno", 980);
+
+        System.out.println("Marca: " + coche1.getMarca());
+        System.out.println("Modelo: " + coche1.getModelo());
+        System.out.println("Velocidad Máxima: " + coche1.getVelocidadMaxima() + " km/h");
+
+        coche1.acelerar(20);  
+        coche1.acelerar(-10); 
+    }
+}
+
+Ejercicio 3:
+
+public class Persona5 {
+    private String nombre = "Santiago";
+}
+
+-
+public class Nosilve {
+    public static void main(String[] args) {
+        Persona5 p = new Persona5();
+        System.out.println(p.nombre); 
+    }
+}
+
+-
+
+public class Producto {
+    private double precio = 99.99;
+
+    public Producto() {
+    }
+}
+
+-
+
+public class PruebaProducto {
+    public static void main(String[] args) {
+        Producto prod = new Producto();
+
+        System.out.println(prod.precio);
+    }
+}
